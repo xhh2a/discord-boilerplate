@@ -1,0 +1,35 @@
+{
+  "name": "discord-boilerplate",
+  "version": "0.0.1",
+  "main": "app.js",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app.js",
+    "dev": "cross-env DATABASE_URL=$(heroku config:get DEVELOPMENT_DB -a your-app) NODE_ENV=development DISCORD_PREFIX=s! DISCORD_OWNER=your_id nodemon app.js --dev",
+    "knex-dev": "cross-env DATABASE_URL=$(heroku config:get DEVELOPMENT_DB -a your-app) npx knex --esm",
+    "knex": "cross-env DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app) npx knex --esm"
+  },
+  "author": "Your Name Here",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "cross-env": "^6.0.3",
+    "discord-command-parser": "^1.5.3",
+    "discord.js": "^12.5.1",
+    "discord.js-commando": "github:discordjs/Commando",
+    "knex": "^0.21.15",
+    "lodash": "*",
+    "minimist": "^1.2.5",
+    "pg": "^8.5.1",
+    "scribe-js": "^2.0.4"
+  }
+}
